@@ -1,0 +1,73 @@
+         operator mean_solving_time 
+         "factor"         "numeric" 
+         operator mean_solving_time 
+         "factor"         "numeric" 
+
+ Descriptive statistics by group 
+group: add
+                  vars  n mean   sd median trimmed  mad  min   max range skew kurtosis   se
+operator*            1 30 1.00 0.00   1.00    1.00 0.00 1.00  1.00  0.00  NaN      NaN 0.00
+mean_solving_time    2 30 8.15 1.94   8.17    8.14 2.11 4.73 12.44  7.71 0.05    -0.82 0.35
+----------------------------------------------------------------------------------------------------------------------------- 
+group: divide
+                  vars  n mean   sd median trimmed  mad  min   max range skew kurtosis   se
+operator*            1 30 2.00 0.00   2.00    2.00 0.00 2.00  2.00  0.00  NaN      NaN 0.00
+mean_solving_time    2 30 8.04 4.75   6.33    7.22 3.12 3.39 22.48 19.08  1.5     1.69 0.87
+----------------------------------------------------------------------------------------------------------------------------- 
+group: modulo
+                  vars  n  mean   sd median trimmed  mad  min   max range skew kurtosis   se
+operator*            1 30  3.00 0.00   3.00    3.00 0.00 3.00  3.00  0.00  NaN      NaN 0.00
+mean_solving_time    2 30 14.86 6.48  12.71   13.97 5.86 7.36 36.73 29.38 1.39     2.16 1.18
+----------------------------------------------------------------------------------------------------------------------------- 
+group: multiply
+                  vars  n  mean   sd median trimmed  mad   min max range skew kurtosis   se
+operator*            1 33  4.00 0.00   4.00    4.00 0.00  4.00   4  0.00  NaN      NaN 0.00
+mean_solving_time    2 33 27.94 7.72  26.97   27.45 9.11 16.64  50 33.36  0.7     0.06 1.34
+----------------------------------------------------------------------------------------------------------------------------- 
+group: subtract
+                  vars  n  mean   sd median trimmed  mad  min   max range  skew kurtosis   se
+operator*            1 30  5.00 0.00   5.00    5.00 0.00 5.00  5.00  0.00   NaN      NaN 0.00
+mean_solving_time    2 30 10.67 3.11  11.19   10.73 3.11 4.37 16.28 11.92 -0.22    -0.78 0.57
+
+	Shapiro-Wilk normality tests
+
+data:  mean_solving_time by operator 
+
+              W   p-value    
+add      0.9819 0.8741406    
+divide   0.8128 0.0001132 ***
+modulo   0.8716 0.0018149 ** 
+multiply 0.9443 0.0903953 .  
+subtract 0.9758 0.7049514    
+---
+Signif. codes:  0 ¡®***¡¯ 0.001 ¡®**¡¯ 0.01 ¡®*¡¯ 0.05 ¡®.¡¯ 0.1 ¡® ¡¯ 1
+
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(>F)    
+group   4  6.5154 7.403e-05 ***
+      148                      
+---
+Signif. codes:  0 ¡®***¡¯ 0.001 ¡®**¡¯ 0.01 ¡®*¡¯ 0.05 ¡®.¡¯ 0.1 ¡® ¡¯ 1
+### Oneway Anova for y=mean_solving_time and x=operator (groups: add, divide, modulo, multiply, subtract)
+
+Omega squared: 95% CI = [.59; .73], point estimate = .67
+Eta Squared: 95% CI = [.6; .72], point estimate = .68
+
+                                     SS  Df      MS     F     p
+Between groups (error + effect) 8858.62   4 2214.65 78.65 <.001
+Within groups (error only)      4167.53 148   28.16            
+
+
+### Post hoc test: games-howell
+
+                    diff  ci.lo  ci.hi     t    df     p
+divide-add         -0.11  -2.79   2.57  0.12 38.40 1.000
+modulo-add          6.71   3.16  10.26  5.44 34.15 <.001
+multiply-add       19.80  15.81  23.78 14.24 36.39 <.001
+subtract-add        2.53   0.63   4.42  3.77 48.55  .004
+modulo-divide       6.82   2.68  10.96  4.65 53.18 <.001
+multiply-divide    19.91  15.39  24.42 12.45 53.87 <.001
+subtract-divide     2.64  -0.29   5.57  2.55 50.03  .097
+multiply-modulo    13.09   8.05  18.12  7.31 60.63 <.001
+subtract-modulo    -4.18  -7.92  -0.44  3.19 41.71  .022
+subtract-multiply -17.27 -21.43 -13.12 11.84 42.94 <.001
