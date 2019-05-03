@@ -1,0 +1,63 @@
+       carries conquest_epoch 
+     "integer"      "numeric" 
+       carries conquest_epoch 
+      "factor"      "numeric" 
+
+ Descriptive statistics by group 
+group: 0
+               vars    n    mean     sd median trimmed   mad  min  max range skew kurtosis   se
+carries*          1 3000    1.00   0.00      1    1.00   0.0    1    1     0  NaN      NaN 0.00
+conquest_epoch    2 3000 2403.67 100.61   2402 2401.95 102.3 2049 2838   789 0.17        0 1.84
+-------------------------------------------------------------------------------------------------------------- 
+group: 1
+               vars    n    mean     sd median trimmed   mad min  max range skew kurtosis   se
+carries*          1 3000    2.00   0.00      2    2.00  0.00   2    2     0  NaN      NaN 0.00
+conquest_epoch    2 3000 1015.97 148.83    974  989.84 87.47 750 1787  1037 1.96     4.45 2.72
+-------------------------------------------------------------------------------------------------------------- 
+group: 2
+               vars    n    mean    sd median trimmed    mad  min  max range skew kurtosis   se
+carries*          1 3000    3.00   0.0    3.0    3.00   0.00    3    3     0  NaN      NaN 0.00
+conquest_epoch    2 3000 2034.53 134.8 2033.5 2033.47 137.14 1599 2519   920 0.07    -0.16 2.46
+-------------------------------------------------------------------------------------------------------------- 
+group: 3
+               vars    n    mean     sd median trimmed    mad min  max range  skew kurtosis   se
+carries*          1 3000    4.00   0.00      4    4.00   0.00   4    4     0   NaN      NaN 0.00
+conquest_epoch    2 3000 1561.71 439.27   1665 1662.16 120.09   1 2134  2133 -3.03     8.06 8.02
+
+	Shapiro-Wilk normality tests
+
+data:  conquest_epoch by carries 
+
+       W   p-value    
+0 0.9980 0.0006738 ***
+1 0.8119 < 2.2e-16 ***
+2 0.9990 0.0935666 .  
+3 0.5122 < 2.2e-16 ***
+---
+Signif. codes:  0 ¡®***¡¯ 0.001 ¡®**¡¯ 0.01 ¡®*¡¯ 0.05 ¡®.¡¯ 0.1 ¡® ¡¯ 1
+
+Levene's Test for Homogeneity of Variance (center = median)
+         Df F value    Pr(>F)    
+group     3  178.27 < 2.2e-16 ***
+      11996                      
+---
+Signif. codes:  0 ¡®***¡¯ 0.001 ¡®**¡¯ 0.01 ¡®*¡¯ 0.05 ¡®.¡¯ 0.1 ¡® ¡¯ 1
+### Oneway Anova for y=conquest_epoch and x=carries (groups: 0, 1, 2, 3)
+
+Omega squared: 95% CI = [.81; .82], point estimate = .82
+Eta Squared: 95% CI = [.81; .82], point estimate = .82
+
+                                           SS    Df            MS        F     p
+Between groups (error + effect) 3247303850.23     3 1082434616.74 17788.62 <.001
+Within groups (error only)       729954652.58 11996      60849.84               
+
+
+### Post hoc test: games-howell
+
+        diff    ci.lo    ci.hi      t      df     p
+1-0 -1387.70 -1396.13 -1379.27 423.09 5266.49 <.001
+2-0  -369.14  -377.03  -361.24 120.20 5548.95 <.001
+3-0  -841.96  -863.11  -820.81 102.33 3312.80 <.001
+2-1  1018.56  1009.14  1027.99 277.83 5940.16 <.001
+3-1   545.74   523.98   567.51  64.45 3678.59 <.001
+3-2  -472.82  -494.38  -451.26  56.36 3558.89 <.001

@@ -1,0 +1,73 @@
+      operator conquest_epoch 
+      "factor"      "numeric" 
+      operator conquest_epoch 
+      "factor"      "numeric" 
+
+ Descriptive statistics by group 
+group: Add
+               vars    n    mean     sd median trimmed    mad  min  max range skew kurtosis  se
+operator*         1 3000    1.00   0.00      1     1.0   0.00    1    1     0  NaN      NaN 0.0
+conquest_epoch    2 3000 2581.89 301.36   2551  2567.8 300.97 1772 3919  2147 0.46     0.01 5.5
+-------------------------------------------------------------------------------------------------------------- 
+group: Divide
+               vars    n    mean     sd median trimmed   mad  min  max range skew kurtosis   se
+operator*         1 3000    2.00   0.00      2    2.00   0.0    2    2     0  NaN      NaN 0.00
+conquest_epoch    2 3000 2403.75 100.54   2402 2402.02 102.3 2049 2838   789 0.17        0 1.84
+-------------------------------------------------------------------------------------------------------------- 
+group: Modulo
+               vars    n    mean     sd median trimmed   mad  min  max range skew kurtosis   se
+operator*         1 3000    3.00   0.00    3.0     3.0   0.0    3    3     0  NaN      NaN 0.00
+conquest_epoch    2 3000 4826.34 311.35 4804.5  4812.6 310.6 4014 6106  2092 0.45     0.18 5.68
+-------------------------------------------------------------------------------------------------------------- 
+group: Multiply
+               vars    n    mean     sd median trimmed    mad  min  max range skew kurtosis   se
+operator*         1 3000    4.00   0.00    4.0    4.00   0.00    4    4     0  NaN      NaN 0.00
+conquest_epoch    2 3000 5916.43 341.76 5902.5 5908.19 343.22 4821 7223  2402 0.23    -0.04 6.24
+-------------------------------------------------------------------------------------------------------------- 
+group: Subtract
+               vars    n    mean     sd median trimmed    mad  min  max range skew kurtosis   se
+operator*         1 3000    5.00   0.00    5.0    5.00   0.00    5    5     0  NaN      NaN 0.00
+conquest_epoch    2 3000 2797.01 293.78 2756.5 2782.48 295.78 1921 3789  1868 0.45     -0.2 5.36
+
+	Shapiro-Wilk normality tests
+
+data:  conquest_epoch by operator 
+
+              W   p-value    
+Add      0.9859 < 2.2e-16 ***
+Divide   0.9980  0.000599 ***
+Modulo   0.9880 2.955e-15 ***
+Multiply 0.9962 7.925e-07 ***
+Subtract 0.9821 < 2.2e-16 ***
+---
+Signif. codes:  0 ¡®***¡¯ 0.001 ¡®**¡¯ 0.01 ¡®*¡¯ 0.05 ¡®.¡¯ 0.1 ¡® ¡¯ 1
+
+Levene's Test for Homogeneity of Variance (center = median)
+         Df F value    Pr(>F)    
+group     4  594.59 < 2.2e-16 ***
+      14995                      
+---
+Signif. codes:  0 ¡®***¡¯ 0.001 ¡®**¡¯ 0.01 ¡®*¡¯ 0.05 ¡®.¡¯ 0.1 ¡® ¡¯ 1
+### Oneway Anova for y=conquest_epoch and x=operator (groups: Add, Divide, Modulo, Multiply, Subtract)
+
+Omega squared: 95% CI = [.96; .96], point estimate = .96
+Eta Squared: 95% CI = [.96; .96], point estimate = .96
+
+                                            SS    Df         MS        F     p
+Between groups (error + effect) 29780664491.99     4 7445166123 92838.78 <.001
+Within groups (error only)       1202517654.65 14995   80194.58               
+
+
+### Post hoc test: games-howell
+
+                      diff    ci.lo    ci.hi      t      df     p
+Divide-Add         -178.13  -193.96  -162.30  30.71 3658.39 <.001
+Modulo-Add         2244.45  2222.86  2266.04 283.71 5991.64 <.001
+Multiply-Add       3334.54  3311.84  3357.24 400.83 5905.54 <.001
+Subtract-Add        215.12   194.15   236.09  28.00 5994.10 <.001
+Modulo-Divide      2422.58  2406.28  2438.89 405.56 3617.69 <.001
+Multiply-Divide    3512.67  3494.92  3530.43 540.08 3514.22 <.001
+Subtract-Divide     393.25   377.78   408.73  69.37 3691.98 <.001
+Multiply-Modulo    1090.09  1067.06  1113.12 129.15 5946.66 <.001
+Subtract-Modulo   -2029.33 -2050.66 -2008.01 259.66 5977.87 <.001
+Subtract-Multiply -3119.42 -3141.87 -3096.97 379.12 5865.78 <.001
